@@ -13,7 +13,7 @@ function getData(type, cb) {
   };
 }
 
-function getTableHeaders(obj){
+function getTableHeaders(obj) {
     var tableHeaders = [];
 
     Object.keys(obj).forEach(function(key) {
@@ -27,15 +27,14 @@ function writeToDocument(type) {
     var el = document.getElementById("data");
     el.innerHTML = "";
 
-    getData(type, function(data){
+    getData(type, function(data) {
         data = data.results;
-        var tableHeaders = getTableHeaders(data[0]);
+        getTableHeaders(data[0]);
 
         data.forEach(function(item) {
-            
-           // el.innerHTML += "<p>" + item.name + "</p>";
-        });  
-        
+            el.innerHTML += "<p>" + item.name + "</p>";
+        });
+
         el.innerHTML = '<table>${tableHeaders}</table>';
     });
 }
